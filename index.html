@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twenty — a field guide to graphic design styles</title>
+<meta name="description" content="Twenty graphic design styles, from Minimalism to Handwritten: the palette, type and moves that make each one recognisable.">
+<meta name="theme-color" content="#0E0D12">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Cdefs%3E%3CradialGradient id=%22g%22 cx=%22.35%22 cy=%22.3%22%3E%3Cstop offset=%220%22 stop-color=%22%23fff%22/%3E%3Cstop offset=%22.5%22 stop-color=%22%236D5CFF%22/%3E%3Cstop offset=%221%22 stop-color=%22%2327D3C3%22/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%2214%22 fill=%22url(%23g)%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Site faces: Anybody (variable width), Geist, Geist Mono, Newsreader italic.
+     Poster faces: one or two per style, loaded in the same request. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:ital,wdth,wght@0,50..150,100..900;1,50..150,100..900&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,300..500&family=Anton&family=Archivo+Black&family=Michroma&family=Special+Elite&family=Caveat:wght@500;700&family=Chakra+Petch:wght@500;700&family=JetBrains+Mono:wght@400;700&family=Bangers&family=Fredoka:wght@500;700&family=Press+Start+2P&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Rubik+Bubbles&family=Inter:wght@400;700;800&family=Cinzel+Decorative:wght@700&family=Rubik+Wet+Paint&family=Permanent+Marker&family=Syne:wght@700;800&family=Cormorant+Garamond:ital,wght@1,500&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
+<link rel="stylesheet" href="css/site.css?v=81">
+<link rel="stylesheet" href="css/posters.css?v=81">
+</head>
+<body class="is-loading">
+<a class="skip-link" href="#index">Skip to the style index</a>
+
+<!-- ░ Loader: counts through the twenty styles, each in its own face ░ -->
+<div class="loader" aria-hidden="true">
+  <div class="loader-count"><span class="loader-num">00</span><span class="loader-of">/20</span></div>
+  <div class="loader-name">Loading styles</div>
+  <div class="loader-bar"><i></i></div>
+</div>
+
+<!-- ░ Depth 0: WebGL scene (ribbon field + chameleon core + style tiles) ░ -->
+<canvas id="core" aria-hidden="true"></canvas>
+<div class="fallback-orb" aria-hidden="true"></div>
+<!-- ░ Depth 5: film grain over everything ░ -->
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"><span class="cursor-label"></span></div>
+<!-- Dive flash: the light you see when the camera passes through the core -->
+<div class="dive-flash" aria-hidden="true"></div>
+<!-- Scroll progress rail -->
+<div class="rail" aria-hidden="true"><i></i></div>
+
+<header class="nav">
+  <a class="nav-mark" href="#top" aria-label="Twenty, back to top">Twenty<sup>®</sup></a>
+  <nav class="nav-links" aria-label="Sections">
+    <a href="#index">Index</a>
+    <a href="#palettes">Palettes</a>
+    <a href="#type">Type</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#matcher">Matcher</a>
+  </nav>
+  <div class="nav-now" aria-live="polite">
+    <span class="nav-dot"></span><span class="nav-now-text">Field guide · 20 styles</span>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ░ HERO ░ -->
+  <section class="hero" data-scene="hero">
+    <div class="hero-meta mono">
+      <span>A field guide</span><span>Vol. 01 — 2026</span><span>20 graphic design styles</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="ht-line">Twenty ways</span>
+      <span class="ht-line">to make a</span>
+      <span class="ht-line"><em class="morph">picture</em> speak.</span>
+    </h1>
+    <div class="hero-foot">
+      <div class="hero-left">
+        <p class="hero-set mono" aria-hidden="true"><i class="hero-set-dot"></i>Set in <b>Newsreader Italic</b></p>
+        <p class="hero-lede">From Minimalism to Handwritten: the palette, the typefaces and the three or four moves that make each style recognisable at a glance.</p>
+      </div>
+      <a class="hero-cue mono" href="#index"><span>Scroll to the index</span><i></i></a>
+    </div>
+  </section>
+
+  <!-- ░ MARQUEE: every name set in its own style's face ░ -->
+  <section class="marquee" aria-label="The twenty styles">
+    <div class="mq-row" data-dir="-1"><div class="mq-track"></div></div>
+    <div class="mq-row" data-dir="1"><div class="mq-track"></div></div>
+  </section>
+
+  <!-- ░ MANIFESTO: words light up with scroll ░ -->
+  <section class="manifesto">
+    <p class="mono manifesto-label">Why a field guide</p>
+    <p class="manifesto-text">Every style is a short list of decisions. A <span class="hl">palette</span>, a <span class="hl">typeface</span>, a <span class="hl">grid</span> you keep or break on purpose. Hit the <span class="hl">three or four moves</span> that define one and it reads instantly. Hit only half of them and it reads as nothing at all.</p>
+  </section>
+
+  <!-- ░ INDEX: pinned, horizontal gallery; the core changes material per style ░ -->
+  <section class="index" id="index" aria-label="Index of twenty styles">
+    <div class="index-pin">
+      <aside class="index-info">
+        <p class="mono index-eyebrow">Index <span class="ii-count">01 / 20</span></p>
+        <div class="ii-num" aria-hidden="true"><span class="odo-col"></span><span class="odo-col"></span></div>
+        <h2 class="ii-name">Minimalism</h2>
+        <p class="ii-essence"></p>
+        <ul class="ii-moves"></ul>
+        <div class="ii-row">
+          <div class="ii-swatches" aria-label="Palette"></div>
+          <p class="ii-fonts mono"></p>
+        </div>
+        <div class="ii-ticks" role="group" aria-label="Jump to a style"></div>
+        <div class="ii-progress" aria-hidden="true"><i></i></div>
+      </aside>
+      <div class="track-view">
+        <div class="index-bleed" aria-hidden="true"><span>Minimalism</span></div>
+        <div class="track">
+
+          <!-- 01 Minimalism -->
+          <figure class="card" data-i="0">
+            <div class="poster p01" role="img" aria-label="Minimalism example: a chair and a single red sheet on an empty off-white field">
+              <span class="p01-lab">134 Quiet Dept.©</span>
+              <span class="p01-dot"></span>
+              <svg class="p01-fig" viewBox="0 0 120 150" aria-hidden="true">
+                <rect class="p01-sheet" x="44" y="18" width="34" height="26" rx="1" transform="rotate(-9 61 31)"/>
+                <path class="p01-chair" pathLength="1" d="M34 92 L86 92 M40 92 L32 140 M80 92 L88 140 M34 92 L30 58" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              <span class="p01-sq"></span>
+              <div class="p01-cap"><b>One Red Thought.</b><small>A chair, a page, a colour. Take everything else away and the idea has room to breathe.</small></div>
+            </div>
+            <figcaption><span>01</span>Minimalism</figcaption>
+          </figure>
+
+          <!-- 02 Maximalism -->
+          <figure class="card" data-i="1">
+            <div class="poster p02" role="img" aria-label="Maximalism example: stacked multicolour cut-out letters, checkerboards, stickers and slogans">
+              <div class="p02-check"></div><div class="p02-zebra"></div><div class="p02-dots"></div><div class="p02-sun"></div>
+              <div class="p02-type" aria-hidden="true">
+                <div><b>M</b><b>A</b><b>X</b><b>I</b></div>
+                <div><b>M</b><b>A</b></div>
+                <div><b>I</b><b>S</b><b>M</b></div>
+              </div>
+              <span class="p02-stk s1">MORE. THEN MORE.</span>
+              <span class="p02-stk s2">clash on purpose</span>
+              <span class="p02-stk s3">NO EMPTY SPACE</span>
+              <span class="p02-stk s4">stack every idea</span>
+              <span class="p02-star">✺</span>
+            </div>
+            <figcaption><span>02</span>Maximalism</figcaption>
+          </figure>
+
+          <!-- 03 Futuristic -->
+          <figure class="card" data-i="2">
+            <div class="poster p03" role="img" aria-label="Futuristic example: a visored figure on a grey and red split field with the wide sans title Next Signal">
+              <div class="p03-fig"><div class="p03-head"></div><div class="p03-visor"></div><div class="p03-body"></div></div>
+              <h3 class="p03-title">NEXT<br>SIGNAL</h3>
+              <p class="p03-tag">A CLEARER LINE BETWEEN NOW<br>AND WHATEVER COMES AFTER.</p>
+              <div class="p03-meta"><span>UNIT 07</span><span>EST. 2091</span><span>FIELD ISSUE</span></div>
+              <span class="p03-vert">LOOK FURTHER</span>
+            </div>
+            <figcaption><span>03</span>Futuristic</figcaption>
+          </figure>
+
+          <!-- 04 Vector Art -->
+          <figure class="card" data-i="3">
+            <div class="poster p04" role="img" aria-label="Vector art example: flat geometric portrait of a woman with a black bob and round sunglasses">
+              <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <rect width="300" height="400" fill="#5E4460"/>
+                <rect x="18" y="40" width="46" height="360" fill="#533A55"/><rect x="236" y="0" width="40" height="300" fill="#533A55"/>
+                <path d="M0 400 L20 318 Q60 282 118 286 L182 286 Q240 282 280 318 L300 400Z" fill="#2E3A4F"/>
+                <path d="M104 300 L196 300 L206 400 L94 400Z" fill="#111318"/>
+                <path d="M122 232 L178 232 L184 300 L116 300Z" fill="#C98A73"/>
+                <path d="M100 150 Q100 84 150 82 Q200 84 200 150 L198 196 Q190 250 150 258 Q110 250 102 196Z" fill="#E7B39A"/>
+                <path d="M150 82 Q200 84 200 150 L198 196 Q190 250 150 258 Q176 226 176 170 Q176 110 150 82Z" fill="#D49A80"/>
+                <path d="M84 238 L84 140 Q86 70 150 64 Q214 70 216 140 L216 238 L192 238 L196 128 L104 128 L108 238Z" fill="#111318"/>
+                <path d="M102 130 L198 130 L198 112 Q150 96 102 112Z" fill="#111318"/>
+                <g stroke="#F4F1EE" stroke-width="5" fill="#1B2130"><circle cx="126" cy="168" r="22"/><circle cx="178" cy="168" r="22"/></g>
+                <path d="M148 166 Q152 160 156 166" stroke="#F4F1EE" stroke-width="4" fill="none"/>
+                <path d="M114 158 Q120 150 128 152" stroke="#8FA0C0" stroke-width="3" fill="none" opacity=".7"/>
+                <path d="M166 158 Q172 150 180 152" stroke="#8FA0C0" stroke-width="3" fill="none" opacity=".7"/>
+                <path d="M136 222 Q150 230 164 222 Q150 238 136 222Z" fill="#9E4B4F"/>
+              </svg>
+            </div>
+            <figcaption><span>04</span>Vector Art</figcaption>
+          </figure>
+
+          <!-- 05 Collage Art -->
+          <figure class="card" data-i="4">
+            <div class="poster p05" role="img" aria-label="Collage example: a face split into misaligned strips, with torn paper scraps and typewritten notes">
+              <div class="p05-red"></div>
+              <div class="p05-rings"></div>
+              <div class="p05-face">
+                <svg class="p05-strip a" viewBox="0 0 200 260" aria-hidden="true"><use href="#p05face"/></svg>
+                <svg class="p05-strip b" viewBox="0 0 200 260" aria-hidden="true"><use href="#p05face"/></svg>
+                <svg class="p05-strip c" viewBox="0 0 200 260" aria-hidden="true"><use href="#p05face"/></svg>
+                <svg class="p05-strip d" viewBox="0 0 200 260" aria-hidden="true"><use href="#p05face"/></svg>
+              </div>
+              <p class="p05-note n1">cut. paste.<br>keep the seams.</p>
+              <p class="p05-note n2">found image<br>no. 0417</p>
+              <span class="p05-tape t1"></span><span class="p05-tape t2"></span>
+              <span class="p05-sig">tw.</span>
+            </div>
+            <figcaption><span>05</span>Collage Art</figcaption>
+          </figure>
+
+          <!-- 06 Retro -->
+          <figure class="card" data-i="5">
+            <div class="poster p06" role="img" aria-label="Retro example: a VHS cassette between the words Side A and Play it again">
+              <h3 class="p06-top">SIDE A</h3>
+              <div class="p06-meta l">HOME RECORDING<br>90 MINUTES</div>
+              <div class="p06-meta r">MIXTAPE<br>VOL. 2</div>
+              <div class="p06-vhs">
+                <div class="p06-label">Summer<br>songs '87</div>
+                <div class="p06-win"><i></i><i></i></div>
+              </div>
+              <div class="p06-est">EST. 1987<br>TAPE NO. 012</div>
+              <p class="p06-sub">PLAY IT</p>
+              <h3 class="p06-bot">AGAIN</h3>
+            </div>
+            <figcaption><span>06</span>Retro</figcaption>
+          </figure>
+
+          <!-- 07 Cyberpunk -->
+          <figure class="card" data-i="6">
+            <div class="poster p07" role="img" aria-label="Cyberpunk example: acid yellow field, wireframe brain, glitch title Neural Drift and a terminal log">
+              <svg class="p07-wire" viewBox="0 0 200 140" aria-hidden="true">
+                <g fill="none" stroke="#0A0A0A" stroke-width=".8" stroke-linecap="round" opacity=".6">
+                  <path pathLength="1" d="M44 92 C22 86 16 58 34 44 C38 22 66 12 86 22 C98 8 132 8 146 24 C170 24 186 46 180 68 C192 84 180 106 160 108 C152 122 128 126 114 116 C100 126 76 124 68 110 C56 112 46 104 44 92Z"/>
+                  <path pathLength="1" d="M98 18 C94 40 104 62 96 84 C92 98 100 108 106 116"/>
+                  <path pathLength="1" d="M40 60 C52 52 60 66 72 56 C80 48 90 58 92 50 M36 76 C50 70 58 84 72 76 C82 70 88 80 96 74 M52 96 C62 88 72 100 84 92 M58 34 C66 44 76 32 86 40"/>
+                  <path pathLength="1" d="M108 34 C118 26 128 40 140 32 C150 26 160 38 168 34 M106 58 C118 50 126 64 138 56 C150 48 162 60 176 56 M110 80 C122 74 132 86 144 80 C156 74 164 86 176 82 M118 102 C128 96 138 106 150 100"/>
+                  <path pathLength="1" d="M122 114 C128 126 124 134 116 138 M132 112 C140 122 150 122 156 112"/>
+                  <path d="M10 70 H30 M170 70 H192 M100 2 V10" stroke-dasharray="2 3"/>
+                  <circle cx="72" cy="56" r="1.6" fill="#0A0A0A"/><circle cx="138" cy="56" r="1.6" fill="#0A0A0A"/><circle cx="96" cy="74" r="1.6" fill="#0A0A0A"/><circle cx="144" cy="80" r="1.6" fill="#0A0A0A"/>
+                </g>
+              </svg>
+              <span class="p07-jp">ニューラルドリフト</span>
+              <h3 class="p07-title" data-text="NEURAL DRIFT">NEURAL<br>DRIFT</h3>
+              <p class="p07-code">_0x7A.12_SYNCING</p>
+              <pre class="p07-log">&gt; BOOT SEQUENCE: 3 OF 5
+&gt; CORTEX LINK: UNSTABLE
+&gt; PACKET STORM [SECTOR_9]
+// OVERRIDE: HANDSHAKE ONLY
+// NOTE: KEEP THE LIGHTS LOW
+&gt; DRIFT OFFSET [0x3c_88]</pre>
+              <div class="p07-load"><i></i></div>
+              <div class="p07-bar"></div>
+              <p class="p07-exec">&gt;&gt; ROUTING SIGNAL<span>_</span></p>
+              <span class="p07-br tl"></span><span class="p07-br br"></span>
+            </div>
+            <figcaption><span>07</span>Cyberpunk</figcaption>
+          </figure>
+
+          <!-- 08 Pop Art -->
+          <figure class="card" data-i="7">
+            <div class="poster p08" role="img" aria-label="Pop art example: radiating comic starburst with halftone dots and the word ZAP">
+              <div class="p08-burst"></div><div class="p08-dots"></div>
+              <div class="p08-boom"><div class="p08-boom-in"></div></div>
+              <h3 class="p08-word">ZAP!</h3>
+            </div>
+            <figcaption><span>08</span>Pop Art</figcaption>
+          </figure>
+
+          <!-- 09 Glassmorphism -->
+          <figure class="card" data-i="8">
+            <div class="poster p09" role="img" aria-label="Glassmorphism example: frosted card floating over a blurred glowing orb">
+              <div class="p09-orb"></div>
+              <div class="p09-glass">
+                <div class="p09-top"><span>✱</span><span>2026</span></div>
+                <span class="p09-pill">Tap to explore</span>
+                <h3>Clear light, soft edges.</h3>
+                <p>Layered panels over a glowing field, built for calm, modern screens.</p>
+                <span class="p09-link">→ Glasshouse</span>
+              </div>
+            </div>
+            <figcaption><span>09</span>Glassmorphism</figcaption>
+          </figure>
+
+          <!-- 10 Clay Style -->
+          <figure class="card" data-i="9">
+            <div class="poster p10" role="img" aria-label="Clay style example: puffy matte clay pebbles, a clay plant and a smiling clay character under the words Stay Soft">
+              <span class="p10-cloud c1"></span><span class="p10-cloud c2"></span>
+              <p class="p10-lab">CLAY STUDIO<br><small>SHAPED BY HAND</small></p>
+              <h3 class="p10-title">Stay<br>Soft</h3>
+              <div class="p10-plant"><i class="stem"></i><i class="leaf l1"></i><i class="leaf l2"></i><i class="leaf l3"></i><i class="leaf l4"></i></div>
+              <div class="p10-buddy"><i class="eye"></i><i class="eye"></i><i class="smile"></i></div>
+              <div class="p10-stack"><i></i><i></i><i></i></div>
+              <p class="p10-foot">ISSUE 02</p>
+            </div>
+            <figcaption><span>10</span>Clay Style</figcaption>
+          </figure>
+
+          <!-- 11 Pixel Art -->
+          <figure class="card" data-i="10">
+            <div class="poster p11" role="img" aria-label="Pixel art example: a cowboy on horseback before a banded pixel sunset and red mesas">
+              <canvas class="p11-canvas" width="60" height="80"></canvas>
+              <p class="p11-title">SUNSET RIDE</p>
+              <p class="p11-start">PRESS START</p>
+            </div>
+            <figcaption><span>11</span>Pixel Art</figcaption>
+          </figure>
+
+          <!-- 12 Editorial -->
+          <figure class="card" data-i="11">
+            <div class="poster p12" role="img" aria-label="Editorial example: huge serif word Unseen over a black and white blindfolded statue">
+              <p class="p12-kick">WHAT THE EYES REFUSE<br>THE PAGE STILL HOLDS</p>
+              <h3 class="p12-mast">UNS<span class="red">EEN</span></h3>
+              <div class="p12-photo">
+                <svg viewBox="0 0 200 240" aria-hidden="true">
+                  <defs><radialGradient id="p12g" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#e9e9e9"/><stop offset=".55" stop-color="#8d8d8d"/><stop offset="1" stop-color="#2a2a2a"/></radialGradient></defs>
+                  <path d="M20 240 Q30 170 70 160 L130 160 Q172 170 182 240Z" fill="url(#p12g)"/>
+                  <path d="M40 240 Q52 190 84 178 M160 240 Q150 196 118 178 M100 240 L102 188" stroke="#3a3a3a" stroke-width="3" fill="none" opacity=".6"/>
+                  <path d="M84 132 L118 132 L122 168 L80 168Z" fill="#9a9a9a"/>
+                  <ellipse cx="100" cy="92" rx="44" ry="56" fill="url(#p12g)"/>
+                  <path d="M54 70 Q100 40 146 70 L150 104 Q100 92 52 104Z" fill="#f2f2f2"/>
+                  <path d="M58 82 Q100 70 144 82 M56 94 Q100 82 148 94" stroke="#a9a9a9" stroke-width="2" fill="none"/>
+                  <path d="M88 126 Q100 132 112 126" stroke="#444" stroke-width="3" fill="none"/>
+                </svg>
+              </div>
+              <div class="p12-credit"><b>NORTH &amp;</b><b>NEEDLE</b><small>ISSUE 14 · AUTUMN</small></div>
+              <p class="p12-art"><b>A STUDY<br>IN GREY</b><small>HALFTONE ON PAPER</small></p>
+              <h4 class="p12-sub">SECOND<br>SIGHT</h4>
+              <span class="p12-spark s1">✦</span><span class="p12-spark s2">✦</span>
+            </div>
+            <figcaption><span>12</span>Editorial</figcaption>
+          </figure>
+
+          <!-- 13 Y2K -->
+          <figure class="card" data-i="12">
+            <div class="poster p13" role="img" aria-label="Y2K example: liquid chrome bubble title Online on icy blue with a chrome star and wireframe globe">
+              <h3 class="p13-title">ONLINE</h3>
+              <svg class="p13-star" viewBox="0 0 100 100" aria-hidden="true">
+                <defs><linearGradient id="p13c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#9aa6b2"/><stop offset=".5" stop-color="#ffffff"/><stop offset=".75" stop-color="#5b6572"/><stop offset="1" stop-color="#e6edf5"/></linearGradient></defs>
+                <path d="M50 0 C54 36 64 46 100 50 C64 54 54 64 50 100 C46 64 36 54 0 50 C36 46 46 36 50 0Z" fill="url(#p13c)" stroke="#3a4a5a" stroke-width="1"/>
+              </svg>
+              <div class="p13-phone"><i></i></div>
+              <svg class="p13-globe" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="2"><circle cx="50" cy="50" r="44"/><ellipse cx="50" cy="50" rx="20" ry="44"/><path d="M6 50 H94 M14 28 H86 M14 72 H86 M50 6 V94"/></g></svg>
+              <span class="p13-sparkle s1">✦</span><span class="p13-sparkle s2">✧</span><span class="p13-sparkle s3">✦</span>
+              <p class="p13-stk">★ 2001 ★<br>Y2K FOREVER</p>
+              <p class="p13-foot">SAMPLE STUDIO · SS/01</p>
+            </div>
+            <figcaption><span>13</span>Y2K</figcaption>
+          </figure>
+
+          <!-- 14 Swiss Design -->
+          <figure class="card" data-i="13">
+            <div class="poster p14" role="img" aria-label="Swiss design example: red grid poster with a flush-left white sans headline">
+              <div class="p14-grid"></div>
+              <div class="p14-date"><b>04.06</b><small>Wed. 13.00 — 17.00<br>Hall 4, Basel</small></div>
+              <span class="p14-lab">Grid<br>× City</span>
+              <div class="p14-shape"></div>
+              <h3 class="p14-head">Order<br>is the<br>loudest<br>idea.</h3>
+              <p class="p14-aside">but only if you keep it.</p>
+              <div class="p14-foot"><span>Address<br>Messeplatz 10</span><span>Phone<br>+41 61 000 00</span><span>Web<br>grid.example</span></div>
+            </div>
+            <figcaption><span>14</span>Swiss Design</figcaption>
+          </figure>
+
+          <!-- 15 Surreal Design -->
+          <figure class="card" data-i="14">
+            <div class="poster p15" role="img" aria-label="Surreal example: a girl standing on a floating grass island among clouds and flying saucers">
+              <span class="p15-ufo u1"></span><span class="p15-ufo u2"></span><span class="p15-ufo u3"></span>
+              <span class="p15-cloud k1"></span><span class="p15-cloud k2"></span>
+              <svg class="p15-isle" viewBox="0 0 200 220" aria-hidden="true">
+                <path d="M20 118 Q100 96 180 118 L150 150 Q128 196 104 214 Q92 190 70 160Z" fill="#6B4A2F"/>
+                <path d="M60 150 L58 176 M92 170 L96 206 M130 160 L140 186 M112 190 L108 214" stroke="#4a3220" stroke-width="2"/>
+                <ellipse cx="100" cy="116" rx="82" ry="16" fill="#4E7A2E"/>
+                <g fill="#6f9e3b"><path d="M34 112 l3 -12 l3 12Z"/><path d="M58 108 l3 -14 l3 14Z"/><path d="M142 108 l3 -12 l3 12Z"/><path d="M160 112 l2 -10 l3 10Z"/></g>
+                <g fill="#f4f1e8"><circle cx="46" cy="108" r="2.2"/><circle cx="74" cy="112" r="2"/><circle cx="132" cy="110" r="2.2"/><circle cx="152" cy="114" r="1.8"/></g>
+                <g fill="#c24a4a"><circle cx="64" cy="114" r="1.8"/><circle cx="120" cy="112" r="2"/></g>
+                <g><rect x="94" y="30" width="12" height="8" rx="3" fill="#2a1e1a"/><circle cx="100" cy="24" r="6" fill="#e3b79a"/><path d="M94 22 Q100 12 106 22 L107 34 L93 34Z" fill="#1e1612"/><rect x="92" y="36" width="16" height="26" rx="3" fill="#1c1c22"/><path d="M92 60 L108 60 L110 76 L90 76Z" fill="#222"/><rect x="94" y="76" width="4" height="26" fill="#e3b79a"/><rect x="102" y="76" width="4" height="26" fill="#e3b79a"/><rect x="93" y="100" width="6" height="4" fill="#111"/><rect x="101" y="100" width="6" height="4" fill="#111"/><rect x="108" y="58" width="6" height="8" rx="1" fill="#111"/></g>
+              </svg>
+              <span class="p15-cloud k3"></span>
+              <p class="p15-lab">GRAVITY,<br>OPTIONAL.</p>
+            </div>
+            <figcaption><span>15</span>Surreal Design</figcaption>
+          </figure>
+
+          <!-- 16 Bohemian -->
+          <figure class="card" data-i="15">
+            <div class="poster p16" role="img" aria-label="Bohemian example: desert of patterned dunes, saguaro cacti, a red sun and a crescent moon">
+              <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                  <pattern id="p16dots" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#C65D3B"/><circle cx="5" cy="5" r="1.6" fill="#F1E3C8"/></pattern>
+                  <pattern id="p16zig" width="16" height="10" patternUnits="userSpaceOnUse"><rect width="16" height="10" fill="#E0A458"/><path d="M0 8 L4 2 L8 8 L12 2 L16 8" stroke="#8C2F1D" stroke-width="1.4" fill="none"/></pattern>
+                  <pattern id="p16line" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#8A9A5B"/><path d="M0 4 H8" stroke="#F1E3C8" stroke-width="1"/></pattern>
+                </defs>
+                <rect width="300" height="400" fill="#EBD5B3"/>
+                <g stroke="#8C2F1D" stroke-width="2.4">
+                  <circle cx="74" cy="72" r="30" fill="#B8432A"/>
+                  <path class="p16-rays" d="M74 26 V14 M74 118 V130 M28 72 H16 M120 72 H132 M42 40 L33 31 M106 104 L115 113 M106 40 L115 31 M42 104 L33 113"/>
+                </g>
+                <path d="M236 40 A40 40 0 1 0 250 110 A32 32 0 1 1 236 40Z" fill="#F4E7CB" stroke="#8C2F1D" stroke-width="1.6"/>
+                <circle cx="222" cy="78" r="2" fill="#8C2F1D"/>
+                <path d="M0 210 Q70 160 150 196 Q230 232 300 186 L300 400 L0 400Z" fill="url(#p16zig)"/>
+                <path d="M0 250 Q90 206 170 250 Q240 288 300 250 L300 400 L0 400Z" fill="url(#p16dots)"/>
+                <path d="M0 300 Q80 270 160 300 Q230 326 300 296 L300 400 L0 400Z" fill="url(#p16line)"/>
+                <path d="M0 348 Q100 320 200 350 Q260 366 300 346 L300 400 L0 400Z" fill="#8C2F1D"/>
+                <path d="M130 192 q4 -10 8 0" stroke="#8C2F1D" stroke-width="2" fill="none"/><rect x="132" y="178" width="4" height="10" rx="2" fill="#B8432A"/><circle cx="134" cy="175" r="3" fill="#3a1d12"/>
+                <g fill="#3F6E4E" stroke="#27432f" stroke-width="1.4">
+                  <path d="M52 400 V250 Q52 236 62 236 Q72 236 72 250 V400Z"/><path d="M52 300 H38 Q30 300 30 290 V262 Q30 254 37 254 Q44 254 44 262 V286 H52Z"/><path d="M72 280 H84 Q92 280 92 270 V246 Q92 238 85 238 Q78 238 78 246 V266 H72Z"/>
+                  <path d="M236 400 V282 Q236 270 245 270 Q254 270 254 282 V400Z"/><path d="M254 318 H264 Q271 318 271 309 V290 Q271 283 265 283 Q259 283 259 290 V306 H254Z"/>
+                </g>
+                <path d="M62 240 V396 M245 274 V396" stroke="#27432f" stroke-width="1"/>
+              </svg>
+            </div>
+            <figcaption><span>16</span>Bohemian</figcaption>
+          </figure>
+
+          <!-- 17 Victorian -->
+          <figure class="card" data-i="16">
+            <div class="poster p17" role="img" aria-label="Victorian example: gothic castle on a misty cliff framed by an ornate arch of roses">
+              <div class="p17-arch">
+                <svg viewBox="0 0 200 260" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                  <defs><linearGradient id="p17sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fb0b3"/><stop offset=".7" stop-color="#d9dccf"/><stop offset="1" stop-color="#a9b4ad"/></linearGradient></defs>
+                  <rect width="200" height="260" fill="url(#p17sky)"/>
+                  <path d="M0 170 L30 120 L55 150 L90 100 L120 140 L150 110 L200 160 L200 260 L0 260Z" fill="#8a9a9a" opacity=".7"/>
+                  <path d="M0 200 Q60 180 110 196 Q160 210 200 190 L200 260 L0 260Z" fill="#5B6B73"/>
+                  <g fill="#2E3B36">
+                    <path d="M92 190 L92 120 L98 120 L98 96 L101 70 L104 96 L104 120 L110 120 L110 190Z"/>
+                    <path d="M74 190 L74 140 L78 140 L81 118 L84 140 L88 140 L88 190Z"/>
+                    <path d="M114 190 L114 132 L118 132 L122 102 L126 132 L130 132 L130 190Z"/>
+                    <path d="M134 190 L134 152 L137 152 L140 134 L143 152 L146 152 L146 190Z"/>
+                    <path d="M62 196 L150 196 L158 214 L54 214Z"/>
+                  </g>
+                </svg>
+              </div>
+              <div class="p17-rose r1"></div><div class="p17-rose r2"></div><div class="p17-rose r3"></div><div class="p17-rose r4"></div>
+              <span class="p17-leaf f1"></span><span class="p17-leaf f2"></span><span class="p17-leaf f3"></span><span class="p17-leaf f4"></span>
+              <p class="p17-title">The Keep</p>
+            </div>
+            <figcaption><span>17</span>Victorian</figcaption>
+          </figure>
+
+          <!-- 18 Graffiti -->
+          <figure class="card" data-i="17">
+            <div class="poster p18" role="img" aria-label="Graffiti example: turquoise wildstyle lettering Block with drips over concrete and a crosswalk">
+              <div class="p18-halo"></div>
+              <h3 class="p18-word">BLOCK</h3>
+              <svg class="p18-drips" viewBox="0 0 200 60" aria-hidden="true"><g fill="#3FE0D0"><path d="M34 0 h6 v30 q-3 8 -6 0Z"/><path d="M78 0 h5 v44 q-2.5 7 -5 0Z"/><path d="M122 0 h6 v22 q-3 7 -6 0Z"/><path d="M160 0 h5 v36 q-2.5 7 -5 0Z"/></g></svg>
+              <div class="p18-cross"></div>
+              <span class="p18-tag">Rivo</span>
+              <span class="p18-circle">ON THE BLOCK !!</span>
+              <p class="p18-small">PAINT DRIES. THE WALL REMEMBERS.<br>OURS UNTIL THE NEXT COAT.</p>
+            </div>
+            <figcaption><span>18</span>Graffiti</figcaption>
+          </figure>
+
+          <!-- 19 Aurora -->
+          <figure class="card" data-i="18">
+            <div class="poster p19" role="img" aria-label="Aurora example: grainy magenta and orange glow rising from black under the title Boreal">
+              <div class="p19-glow"></div><div class="p19-grain"></div>
+              <h3 class="p19-title">BOREAL</h3>
+              <p class="p19-fine">Charged particles meet the upper atmosphere and the sky answers in colour. Here it is rendered as light, blur and grain.</p>
+              <span class="p19-line"></span>
+              <p class="p19-lab l">( field notes )</p><p class="p19-lab r">( 64°08′N )</p>
+            </div>
+            <figcaption><span>19</span>Aurora</figcaption>
+          </figure>
+
+          <!-- 20 Handwritten -->
+          <figure class="card" data-i="19">
+            <div class="poster p20" role="img" aria-label="Handwritten example: the words Fresh figs hand-lettered in wobbly cream shapes on maroon">
+              <p class="p20-top">INKWELL.<br>· · ·</p>
+              <div class="p20-blob b1"><span>Fresh</span></div>
+              <div class="p20-blob b2"><span>figs.</span></div>
+              <p class="p20-sub">a loose, friendly,<br>slightly wonky<br>hand-drawn face.</p>
+              <svg class="p20-doodle" viewBox="0 0 60 40" aria-hidden="true"><path pathLength="1" d="M4 30 Q20 4 44 14 M36 8 L46 14 L38 22" fill="none" stroke="#F3E6CF" stroke-width="2.4" stroke-linecap="round"/></svg>
+            </div>
+            <figcaption><span>20</span>Handwritten</figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░ PALETTES: a wall of twenty palettes; open a strip, copy a colour ░ -->
+  <section class="palettes" id="palettes" aria-labelledby="pal-title">
+    <div class="sec-head">
+      <p class="mono">Palettes</p>
+      <h2 class="sec-title" id="pal-title">Colour, <em>twenty ways.</em></h2>
+      <p class="sec-lede">Hover a strip to open it. Click any colour to copy its hex code.</p>
+    </div>
+    <div class="pal-wall" role="list"></div>
+    <p class="toast mono" role="status" aria-live="polite"></p>
+  </section>
+
+  <!-- ░ TYPEFACES: every style's voice, previewing your own words ░ -->
+  <section class="type" id="type" aria-labelledby="type-title">
+    <div class="sec-head sec-head--row">
+      <div>
+        <p class="mono">Typefaces</p>
+        <h2 class="sec-title" id="type-title">Type, <em>twenty voices.</em></h2>
+      </div>
+      <label class="type-input">
+        <span class="mono">Try your own words</span>
+        <input type="text" maxlength="22" placeholder="Make it speak" autocomplete="off" spellcheck="false">
+      </label>
+    </div>
+    <div class="type-grid"></div>
+  </section>
+
+  <!-- ░ QUIZ: spot the style ░ -->
+  <section class="quiz" id="quiz" aria-labelledby="quiz-title">
+    <div class="sec-head">
+      <p class="mono">Spot the style</p>
+      <h2 class="sec-title" id="quiz-title">Can you <em>name it?</em></h2>
+      <p class="sec-lede">One poster, four names. Pick the style it belongs to.</p>
+    </div>
+    <div class="quiz-stage">
+      <div class="quiz-poster" aria-live="polite"></div>
+      <div class="quiz-side">
+        <p class="quiz-score mono"><span class="qs-streak">Streak 0</span><span class="qs-best">Best 0</span></p>
+        <div class="quiz-choices" role="group" aria-label="Choose a style"></div>
+        <p class="quiz-feedback" aria-live="polite"></p>
+        <button class="quiz-next" type="button">Next poster <span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░ PAIRINGS ░ -->
+  <section class="pairs" id="pairs" aria-labelledby="pairs-title">
+    <div class="sec-head">
+      <p class="mono">Pairings</p>
+      <h2 class="sec-title" id="pairs-title">Mix two, <em>carefully.</em></h2>
+      <p class="sec-lede">Start from one base style and borrow a single move from another. These combinations hold together.</p>
+    </div>
+    <div class="pair-grid"></div>
+    <div class="clash"><span class="mono">Avoid</span><div class="clash-list"></div></div>
+  </section>
+
+  <!-- ░ MATCHER ░ -->
+  <section class="matcher" id="matcher">
+    <div class="matcher-head">
+      <p class="mono">Matcher</p>
+      <h2 class="matcher-title sec-title">What are you <em>making?</em></h2>
+      <p class="matcher-lede">Pick the closest brief. You'll get the styles that suit it, best fit first.</p>
+    </div>
+    <div class="chips" role="group" aria-label="Choose a brief"></div>
+    <div class="results" aria-live="polite"></div>
+  </section>
+
+  <!-- ░ FOOTER ░ -->
+  <footer class="colophon" id="colophon">
+    <div class="col-grid">
+      <div>
+        <p class="mono">Twenty</p>
+        <p class="col-text">A field guide to twenty graphic design styles: what defines each one, and how to use it well.</p>
+      </div>
+      <div>
+        <p class="mono">Explore</p>
+        <ul class="col-list col-links">
+          <li><a href="#index">Index</a></li>
+          <li><a href="#palettes">Palettes</a></li>
+          <li><a href="#type">Typefaces</a></li>
+          <li><a href="#quiz">Spot the style</a></li>
+          <li><a href="#pairs">Pairings</a></li>
+          <li><a href="#matcher">Matcher</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="mono">Start here</p>
+        <p class="col-text col-text--sm">Not sure where to begin? Tell the matcher what you're making and it will suggest the styles that fit.</p>
+        <a class="col-cta" href="#matcher">Find my style <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <a class="col-word" href="#top" aria-label="Back to top">TWENTY</a>
+    <div class="col-foot mono"><span>© 2026 Twenty, a field guide · <a href="/licenses">Licenses</a></span><a href="#top">Back to top ↑</a></div>
+  </footer>
+</main>
+
+<!-- Shared SVG symbol for the collage face (reused by 4 clipped strips) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="p05face" viewBox="0 0 200 260">
+    <rect width="200" height="260" fill="#d8d2c4"/>
+    <path d="M40 260 Q44 190 70 170 L66 120 Q52 40 104 34 Q160 34 152 118 L148 170 Q170 190 176 260Z" fill="#8b857a"/>
+    <path d="M64 96 Q64 42 106 40 Q150 42 146 100 Q126 70 64 96Z" fill="#2b2622"/>
+    <ellipse cx="86" cy="112" rx="10" ry="5" fill="#1b1714"/><ellipse cx="126" cy="112" rx="10" ry="5" fill="#1b1714"/>
+    <path d="M104 116 L98 146 Q106 150 114 146" stroke="#3a332d" stroke-width="3" fill="none"/>
+    <path d="M86 164 Q104 172 122 164" stroke="#3a332d" stroke-width="4" fill="none"/>
+    <path d="M84 150 Q104 176 126 150" stroke="#2b2622" stroke-width="7" fill="none" opacity=".75"/>
+  </symbol>
+</svg>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/babylonjs@8.56.2/babylon.js"></script>
+<script src="js/data.js?v=81"></script>
+<script src="js/posters.js?v=81"></script>
+<script src="js/core3d.js?v=81"></script>
+<script src="js/main.js?v=81"></script>
+<script src="js/sections.js?v=81"></script>
+</body>
+</html>
